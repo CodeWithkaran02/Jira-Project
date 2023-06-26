@@ -5,11 +5,11 @@ let addModal = true;
 
 addbtn.addEventListener("click", function () {
     if (addModal) {
-        model.style.display = "flex";
+        modal.style.display = "flex";
 
     }
     else {
-        model.style.display = "none";
+        modal.style.display = "none";
     }
     addModal = !addModal;
 })
