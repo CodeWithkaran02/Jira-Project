@@ -67,12 +67,14 @@ body {
 }
 
 .modal-cont {
+    position: absolute;
+    left: 25vw;
+    top: 25vh;
     background-color: chartreuse;
     height: 50vh;
     width: 50vw;
     display: flex;
-    margin-left: 20rem;
-    margin-top: 7rem;
+
 
 }
 
@@ -102,4 +104,34 @@ body {
     height: 3rem;
     width: 5rem;
     gap: 1rem;
+}
+
+.main-cont {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+
+}
+
+.ticket-cont {
+    background-color: aqua;
+    height: 10rem;
+    width: 15rem;
+}
+
+.ticket-color {
+    height: 1rem;
+}
+
+.ticket-id {
+    height: 1.5rem;
+    background-color: red;
+}
+
+.task-area {
+    height: calc(100%-1rem-11.5rem);
+    padding: 5px;
+    font-size: 1.5rem;
 }
