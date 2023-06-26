@@ -4,7 +4,12 @@ let modal = document.querySelector(".modal-cont");
 let addModal = true;
 
 addbtn.addEventListener("click", function () {
+    if (addModal) {
+        model.style.display = "flex";
 
-    model.style.display = "flex";
-    console.log("click the button ")
+    }
+    else {
+        model.style.display = "none";
+    }
+    addModal = !addModal;
 })
