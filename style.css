@@ -56,6 +56,10 @@ body {
     background-color: black;
 }
 
+.active {
+    border: 5px solid red;
+}
+
 .add-btn {
     font-size: 1.5rem;
 }
