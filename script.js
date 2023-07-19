@@ -3,10 +3,12 @@ let modal = document.querySelector(".modal-cont");
 let modalCont = document.querySelector(".modal-cont");
 let taskAreaCont = document.querySelector(".textarea-cont");
 let mainCont = document.querySelector(".main-cont");
+let removebtn = document.querySelector(".remove-btn")
 let allPriorityColor = document.querySelectorAll(".prioritu-color");
 let modalPriorityColor = "black";
 
 let addModal = true;
+let removeflag = false;
 
 addbtn.addEventListener("click", function () {
     if (addModal) {
@@ -39,6 +41,17 @@ modalCont.addEventListener("keydown", function (e) {
         addModal = !addModal;
     }
 })
+removebtn.addEventListener("click", function () {
+    if (removeflag) {
+        removebtn.style.color = 'black';
+
+    }
+    else {
+        removebtn.style.color = 'red';
+    }
+    removeflag = !removeflag;
+})
+
 function createTicket(ticketColor, task) {
 
     let ticketCont = document.createElement("div");
@@ -51,6 +64,7 @@ function createTicket(ticketColor, task) {
     mainCont.appendChild(ticketCont);
 
     //console.log("it will run ")
+
 
 
 }
