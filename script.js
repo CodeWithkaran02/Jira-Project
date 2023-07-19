@@ -64,7 +64,10 @@ function createTicket(ticketColor, task) {
     mainCont.appendChild(ticketCont);
 
     //console.log("it will run ")
-
-
-
+    ticketCont.addEventListener("click", function () {
+        if (removeflag) {
+            ticketCont.remove();
+        }
+    })
 }
+
