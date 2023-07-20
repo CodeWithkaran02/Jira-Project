@@ -59,10 +59,24 @@ function createTicket(ticketColor, task) {
     ticketCont.setAttribute('class', 'ticket-cont');
     ticketCont.innerHTML = `<div class="ticket-color ${ticketColor} "></div>
                              <div class="ticket-id">#qx03q</div>
-                              <div class="task-area">${task}</div>`;
-
+                              <div class="task-area">${task}</div>
+                              <div class = "lock-unlock "><i class = "fa fa-lock"> </i></div>`
 
     mainCont.appendChild(ticketCont);
+
+    // unlock and lock 
+    let lockUnlockBtn = ticketCont.querySelector(".lock-unlock i");
+    lockUnlockBtn.addEventListener("click", function () {
+        if (lockUnlockBtn.classList.contains("fa-lock")) {
+            lockUnlockBtn.classList.remove("fa-lock");
+            lockUnlockBtn.classList.add("fa-unlock");
+        }
+        else {
+            lockUnlockBtn.classList.remove("fa-unlock");
+            lockUnlockBtn.classList.add("fa-lock");
+        }
+    })
+
 
     //console.log("it will run ")
     ticketCont.addEventListener("click", function () {
