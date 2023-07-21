@@ -120,7 +120,7 @@ body {
 }
 
 .ticket-cont {
-    background-color: aqua;
+    background-color: rgb(223, 228, 228);
     height: 10rem;
     width: 15rem;
 }
@@ -131,18 +131,24 @@ body {
 
 .ticket-id {
     height: 1.5rem;
-    background-color: red;
+    /* background-color: red; */
+    font-weight: 600;
+    font-size: 0.75rem;
+    margin-left: 0.3rem;
+    margin-top: 0.3rem;
 }
 
 .task-area {
-    height: calc(100%-1rem- 1.5rem);
+    height: 5.5rem;
     padding: 5px;
     font-size: 1.25rem;
+    overflow: auto;
+    outline: none;
+    word-break: break-all;
 }
 
 .lock-unlock {
     font-size: 1.5rem;
-    margin-top: 3rem;
     margin-left: 12.5rem;
 
 

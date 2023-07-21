@@ -5,8 +5,9 @@ let taskAreaCont = document.querySelector(".textarea-cont");
 let mainCont = document.querySelector(".main-cont");
 let removebtn = document.querySelector(".remove-btn")
 let allPriorityColor = document.querySelectorAll(".prioritu-color");
-let colors = ["lightpink", "greeen ", "blue", "black"]
+let colors = ["lightpink", "green ", "blue", "black"]
 let modalPriorityColor = colors[colors.length - 1];
+var uid = new ShortUniqueId();
 
 let addModal = true;
 let removeflag = false;
@@ -58,7 +59,7 @@ function createTicket(ticketColor, task) {
     let ticketCont = document.createElement("div");
     ticketCont.setAttribute('class', 'ticket-cont');
     ticketCont.innerHTML = `<div class="ticket-color ${ticketColor} "></div>
-                             <div class="ticket-id">#qx03q</div>
+                             <div class="ticket-id">#${uid()}</div>
                               <div class="task-area">${task}</div>
                               <div class = "lock-unlock "><i class = "fa fa-lock"> </i></div>`
 
@@ -66,14 +67,18 @@ function createTicket(ticketColor, task) {
 
     // unlock and lock 
     let lockUnlockBtn = ticketCont.querySelector(".lock-unlock i");
+    let TicletTaskArea = ticketCont.querySelector(".task-area");
     lockUnlockBtn.addEventListener("click", function () {
         if (lockUnlockBtn.classList.contains("fa-lock")) {
             lockUnlockBtn.classList.remove("fa-lock");
             lockUnlockBtn.classList.add("fa-unlock");
+            TicletTaskArea.setAttribute("contenteditable", "true");
         }
         else {
             lockUnlockBtn.classList.remove("fa-unlock");
             lockUnlockBtn.classList.add("fa-lock");
+            TicletTaskArea.setAttribute("contenteditable", "false");
+
         }
     })
 
@@ -86,21 +91,21 @@ function createTicket(ticketColor, task) {
     })
 
     //handal color 
-    let ticketColorband = ticketCont.querySelector(".ticket-color");
-    ticketColorband.addEventListener("click", function () {
-        let currrentTicketColor = ticketColorband.classList[1];
+    let ticketColorBand = ticketCont.querySelector(".ticket-color");
+    ticketColorBand.addEventListener("click", function () {
+        //update UI
+        let currentTicketColor = ticketColorBand.classList[1];
         let currentTicketColorIdx = -1;
         for (let i = 0; i < colors.length; i++) {
-            if (currrentTicketColor == colors[i]) {
+            if (currentTicketColor == colors[i]) {
                 currentTicketColorIdx = i;
                 break;
-
             }
         }
-        let nextcolorIdx = (currentTicketColorIdx + 1) % colors.length;
-        let nextcolor = colors[nextcolorIdx];
-        ticketColorband.classList.remove(currrentTicketColor);
-        ticketColorband.classList.add(nextcolor);
+        let nextColorIdx = (currentTicketColorIdx + 1) % colors.length;
+        let nextColor = colors[nextColorIdx];
+        ticketColorBand.classList.remove(currentTicketColor);
+        ticketColorBand.classList.add(nextColor);
     })
 }
 
